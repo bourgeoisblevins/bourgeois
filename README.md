@@ -58,7 +58,7 @@ Fonts are self-hosted in `fonts/`:
 - Cormorant Garamond — body, scripture
 - Source Sans 3 — navigation and UI
 
-The Serpent's Eye (`img/serpents-eye.svg`) is line only: three coils around the sun, horizontal slit pupil. Never a cartoon snake, never a caduceus.
+The Serpent's Eye (`img/serpents-eye.svg`) is line only: three coils around the sun, vertical slit pupil. Never a cartoon snake, never a caduceus.
 
 ## Color
 

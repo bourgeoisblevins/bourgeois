@@ -6,22 +6,8 @@
 
 @font-face {
   font-family: "Cinzel";
-  src: url("../fonts/Cinzel-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Cinzel";
-  src: url("../fonts/Cinzel-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Cinzel";
-  src: url("../fonts/Cinzel-Bold.ttf") format("truetype");
-  font-weight: 700;
+  src: url("../fonts/Cinzel.ttf") format("truetype");
+  font-weight: 400 900;
   font-style: normal;
   font-display: swap;
 }
@@ -33,23 +19,9 @@
   font-display: swap;
 }
 @font-face {
-  font-family: "Cormorant Garamond";
-  src: url("../fonts/Cormorant-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
   font-family: "Source Sans 3";
-  src: url("../fonts/SourceSans3-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Source Sans 3";
-  src: url("../fonts/SourceSans3-Medium.ttf") format("truetype");
-  font-weight: 500;
+  src: url("../fonts/SourceSans3.ttf") format("truetype");
+  font-weight: 200 900;
   font-style: normal;
   font-display: swap;
 }
@@ -395,13 +367,15 @@ button { cursor: pointer; }
    -------------------------------------------------------------------------- */
 
 .terraces {
-  display: grid;
-  grid-template-rows: auto auto auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-bottom: 48px;
 }
 
 .terrace {
   display: block;
-  padding: 48px 64px;
+  padding: 56px 64px;
   border-top: 1px solid var(--line);
   background: var(--obsidian);
   color: inherit;
@@ -423,6 +397,7 @@ button { cursor: pointer; }
 }
 
 .terrace-sandria {
+  width: 100%;
   text-align: left;
   background: linear-gradient(180deg, #100e0c 0%, var(--obsidian) 100%);
 }
@@ -430,20 +405,31 @@ button { cursor: pointer; }
 .terrace-sandria:hover { background: #14110e; }
 
 .terrace-sakura {
+  width: 78%;
+  align-self: center;
   text-align: center;
-  padding-left: 12%;
-  padding-right: 12%;
+  padding: 48px 56px;
   background: #0e0c0b;
+  border-left: 1px solid var(--line-dim);
+  border-right: 1px solid var(--line-dim);
 }
 .terrace-sakura .terrace-name { color: var(--sakura); }
 .terrace-sakura:hover { background: #151214; }
 
 .terrace-saffrika {
+  width: 58%;
+  align-self: flex-end;
   text-align: right;
   background: #0c0d0b;
-  padding-left: 24%;
+  margin-right: 6%;
+  padding: 48px 56px 56px;
 }
-.terrace-saffrika .terrace-name { color: #6e8a74; }
+.terrace-saffrika .terrace-name {
+  color: var(--bone);
+  display: inline-block;
+  border-bottom: 1px solid var(--saffrika);
+  padding-bottom: 8px;
+}
 .terrace-saffrika:hover { background: #10140f; }
 
 /* --------------------------------------------------------------------------
@@ -476,7 +462,7 @@ button { cursor: pointer; }
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   letter-spacing: 0.12em;
   line-height: 1.2;
-  color: var(--nexus);
+  color: var(--bone);
   margin: 0 0 28px;
 }
 
@@ -534,20 +520,18 @@ button { cursor: pointer; }
 .office-grid,
 .disciple-grid,
 .rite-grid {
-  display: grid;
-  gap: 1px;
-  background: var(--line-dim);
-  margin-top: 48px;
-  border: 1px solid var(--line-dim);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 64px;
+  background: none;
+  border: 0;
 }
 
-.office-grid { grid-template-columns: 1fr 1fr; }
-.disciple-grid { grid-template-columns: 1fr 1fr 1fr; }
-.rite-grid { grid-template-columns: 1fr 1fr; }
-
 .office, .disciple, .rite, .tenet {
-  background: var(--obsidian);
-  padding: 36px 32px 40px;
+  background: transparent;
+  padding: 48px 0 56px;
+  border-top: 1px solid var(--line-dim);
 }
 .office h3, .disciple h3, .rite h3, .tenet h3 {
   margin-top: 0;
@@ -570,22 +554,63 @@ button { cursor: pointer; }
 }
 
 .office-father {
-  grid-column: 1 / -1;
-  background:
-    radial-gradient(ellipse at 12% 0%, rgba(201, 162, 39, 0.1), transparent 50%),
-    var(--obsidian);
+  padding: 56px 0 64px;
+  border-top: 1px solid var(--line);
+  background: radial-gradient(ellipse at 8% 0%, rgba(201, 162, 39, 0.1), transparent 52%);
 }
 .office-father h3 { color: var(--nexus); }
 .office-father p { color: var(--bone); font-size: 1.22rem; }
 
-.office-blevins h3 { color: var(--crimson); }
-.office-blevins .office-role { color: var(--ember); }
+/* Living gods recede as ziggurat steps — not equal card stacks */
+.office-grid > .office:nth-child(2) { margin-right: 8%; }
+.office-grid > .office:nth-child(3) { margin-left: 8%; margin-right: 16%; }
+.office-grid > .office:nth-child(4) { margin-left: 16%; margin-right: 10%; }
+.office-grid > .office:nth-child(5) { margin-left: 24%; margin-right: 18%; }
+
+.disciple-grid > .disciple:nth-child(1) { margin-right: 6%; }
+.disciple-grid > .disciple:nth-child(2) { margin-left: 10%; margin-right: 12%; }
+.disciple-grid > .disciple:nth-child(3) { margin-left: 22%; margin-right: 8%; }
+
+.rite-grid > .rite:nth-child(1) { margin-right: 4%; }
+.rite-grid > .rite:nth-child(2) { margin-left: 8%; margin-right: 12%; }
+.rite-grid > .rite:nth-child(3) { margin-left: 4%; margin-right: 20%; }
+.rite-grid > .rite:nth-child(4) { margin-left: 16%; margin-right: 8%; }
+.rite-grid > .rite:nth-child(5) { margin-left: 8%; margin-right: 24%; }
+.rite-grid > .rite:nth-child(6) { margin-left: 22%; margin-right: 6%; }
 
 .office-allenbraze .office-role { color: var(--ash); }
 
 .disciple-sandria h3 { color: var(--sandria); }
 .disciple-sakura h3 { color: var(--sakura); }
-.disciple-saffrika h3 { color: #8aa890; }
+.disciple-saffrika h3 {
+  color: var(--bone);
+  display: inline-block;
+  border-bottom: 1px solid var(--saffrika);
+  padding-bottom: 6px;
+}
+
+/* Blevins: a break below the pantheon, never a peer seat */
+.blevins-break {
+  margin: 96px 12% 0;
+  max-width: 62ch;
+  padding: 48px 0 8px;
+  border-top: 1px solid var(--crimson);
+}
+.blevins-break .kicker { color: var(--crimson); }
+.blevins-break h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
+  color: var(--bone);
+  margin: 0 0 16px;
+}
+.blevins-break p {
+  font-size: 1.12rem;
+  color: var(--ash);
+  margin: 0 0 1em;
+}
+.blevins-break p:last-child { margin-bottom: 0; }
 
 .tenet-list {
   display: grid;
@@ -832,7 +857,18 @@ form.is-done { display: none; }
 
 .region-sandria .hero-kicker { color: var(--sandria); }
 .region-sakura .hero-kicker { color: var(--sakura); }
-.region-saffrika .hero-kicker { color: #6e8a74; }
+.region-saffrika .hero-kicker {
+  color: var(--bone);
+  display: inline-block;
+  border-bottom: 1px solid var(--saffrika);
+  padding-bottom: 6px;
+}
+.kicker-saffrika {
+  color: var(--bone) !important;
+  display: inline-block;
+  border-bottom: 1px solid var(--saffrika);
+  padding-bottom: 6px;
+}
 
 .band-sandria { border-top-color: rgba(196, 165, 116, 0.45); }
 .band-sakura { border-top-color: rgba(212, 165, 176, 0.4); }
@@ -874,13 +910,15 @@ form.is-done { display: none; }
     border-top: 1px solid var(--line-dim);
   }
   .mast-actions { gap: 4px; }
-  .office-grid,
-  .rite-grid { grid-template-columns: 1fr; }
-  .disciple-grid { grid-template-columns: 1fr; }
+  .office-grid > .office,
+  .disciple-grid > .disciple,
+  .rite-grid > .rite { margin-left: 0 !important; margin-right: 0 !important; }
   .hierarchy li { grid-template-columns: 1fr; gap: 8px; }
   .terrace { padding: 40px 24px; }
-  .terrace-sakura { padding-left: 24px; padding-right: 24px; }
-  .terrace-saffrika { padding-left: 24px; text-align: right; }
+  .terrace-sakura,
+  .terrace-saffrika { width: 100%; margin: 0; align-self: stretch; border-left: 0; border-right: 0; }
+  .terrace-saffrika { text-align: right; }
+  .blevins-break { margin-left: 0; margin-right: 0; }
   .step { padding: 72px 24px; }
   .hero { padding: 72px 24px 96px; }
   .crimson-moon { right: 24px; top: 32px; width: 28px; height: 28px; }

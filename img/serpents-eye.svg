@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-labelledby="eyeTitle eyeDesc">
   <title id="eyeTitle">Serpent's Eye</title>
-  <desc id="eyeDesc">A serpent coiled three times around the sun, a horizontal slit pupil at the center. Line only. Never a cartoon snake, never a caduceus.</desc>
+  <desc id="eyeDesc">A serpent coiled three times around the sun, a vertical slit pupil at the center. Line only. Never a cartoon snake, never a caduceus.</desc>
   <!-- Outer sun ring — the court of the coil -->
   <circle cx="100" cy="100" r="93" stroke="#C9A227" stroke-width="1.1"/>
   <!-- Inner sun — gold as light, not a fill -->
@@ -19,6 +19,6 @@
   <path d="M100 16 C107 8 114 10 116 16 C114 22 107 24 100 16 Z" stroke="#E8C547" stroke-width="1.25" stroke-linejoin="round"/>
   <!-- Almond eye around the sun's heart -->
   <path d="M69 100 C86 83 114 83 131 100 C114 117 86 117 69 100 Z" stroke="#C9A227" stroke-width="1.45"/>
-  <!-- Horizontal slit pupil -->
-  <path d="M84 100 H116" stroke="#E8C547" stroke-width="2.35" stroke-linecap="round"/>
+  <!-- Vertical slit pupil -->
+  <path d="M100 84 V116" stroke="#E8C547" stroke-width="2.35" stroke-linecap="round"/>
 </svg>

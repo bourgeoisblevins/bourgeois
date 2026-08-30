@@ -4,6 +4,6 @@
     <circle cx="100" cy="100" r="93" stroke="#C9A227" stroke-width="8"/>
     <circle cx="100" cy="100" r="31" stroke="#E8C547" stroke-width="8"/>
     <path d="M69 100 C86 83 114 83 131 100 C114 117 86 117 69 100 Z" stroke="#C9A227" stroke-width="8"/>
-    <path d="M84 100 H116" stroke="#E8C547" stroke-width="12" stroke-linecap="round"/>
+    <path d="M100 84 V116" stroke="#E8C547" stroke-width="12" stroke-linecap="round"/>
   </g>
 </svg>
