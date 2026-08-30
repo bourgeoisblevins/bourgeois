@@ -1678,3 +1678,16 @@ body.heat-works .works-board .hero-lede {
   }
   .slab-person { max-width: 280px; }
 }
+
+.imdb-hair {
+  font-family: var(--font-ui);
+  font-size: 0.55rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--ash);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.28);
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.imdb-hair:hover { color: var(--nexus); }
+.person-land { margin-top: 40px; max-width: 640px; }
