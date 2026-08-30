@@ -49,6 +49,7 @@ Do not enable a Jekyll theme. Custom domains are optional; add a `CNAME` file at
 | `regions.html` | The three terraces. Gonduras ruins. Forgotten Relics are Noah's weapons, not Bourgeois's; only Habib's Twin Blades remain in those ruins. No treasure-hunt interface. |
 | `war.html` | The Great War, the Deep, the Crimson Moon as jail. |
 | `codex.html` | Codices of the Serpent's Light. Canon verses. Reading-list capture (UI only). |
+| `works.html` | Two offerings, one world. The Shattered Age. Blevins: Rising. A temple keeps what it makes. Not a shop. |
 
 ## Type and mark
 

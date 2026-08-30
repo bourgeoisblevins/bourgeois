@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add("js");</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Works · BOURGEOIS</title>
+  <meta name="description" content="A temple keeps what it makes. The Shattered Age. Blevins: Rising. Not a shop.">
+  <meta name="theme-color" content="#0B0A09">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="heat-works">
+  <a class="skip" href="#content">Skip to the altar</a>
+  <header class="masthead">
+    <a class="wordmark" href="index.html">BOURGEOIS</a>
+    <nav class="nav-primary" aria-label="Primary">
+      <a href="world.html">World</a>
+      <a href="order.html">Order</a>
+      <a href="regions.html">Regions</a>
+      <a href="war.html">War</a>
+      <a href="codex.html">Codex</a>
+      <a href="works.html" aria-current="page">Works</a>
+    </nav>
+    <div class="mast-actions">
+      <button class="btn-enter" type="button" data-open-enter>Enter</button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero hero-page works-board" aria-labelledby="works-title">
+      <div class="works-main">
+        <p class="hero-kicker">Works</p>
+        <h1 id="works-title"><span class="gold">TWO OFFERINGS</span><span class="bone">ONE WORLD</span></h1>
+        <p class="hero-lede">A temple keeps what it makes. Not a shop.</p>
+
+        <article class="offering offering-first reveal" id="shattered-age">
+          <figure class="slab slab-poster">
+            <img src="img/shattered-age-poster.png" alt="A cloaked figure looks toward a golden spire over a ruined city, a crimson moon far in the storm." width="1536" height="1024" loading="lazy">
+          </figure>
+          <div class="offering-copy">
+            <h2>THE SHATTERED AGE</h2>
+            <p class="offering-kind">Live action</p>
+            <p class="lede">The war. The son. The age that broke.</p>
+            <a class="offering-path" href="codex.html#testament">Read the Testament</a>
+            <p class="offering-lore"><a href="war.html">War</a> · <a href="codex.html">Codex</a></p>
+          </div>
+        </article>
+
+        <article class="offering offering-lesser reveal" id="blevins-rising">
+          <figure class="slab slab-key">
+            <img src="img/blevins-rising-key.png" alt="A shattered stone colossus under the Crimson Moon; a distant temple holds a small gold light." width="1536" height="1024" loading="lazy">
+          </figure>
+          <div class="offering-copy">
+            <h2>BLEVINS: RISING</h2>
+            <p class="offering-kind">Video game</p>
+            <p class="lede">The Usurper's name, never this house's chrome.</p>
+            <a class="offering-path" href="war.html">Enter the work</a>
+            <p class="offering-note">The work is named. The hour of release is not kept here.</p>
+            <p class="offering-lore"><a href="war.html">War</a> · <a href="regions.html">Regions</a></p>
+          </div>
+        </article>
+      </div>
+      <aside class="works-heat" aria-hidden="false">
+        <figure class="slab slab-tall">
+          <img src="img/temple-nexus.png" alt="The Nexus hall: a gold altar on stone steps, the Serpent's Eye in a coil on the far wall." width="1536" height="1024" loading="lazy">
+        </figure>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <a class="wordmark" href="index.html">BOURGEOIS</a>
+    <p class="foot-sub">The Golden Father · <a href="order.html">Order of the Golden Serpents</a></p>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="world.html">World</a>
+      <a href="order.html">Order</a>
+      <a href="regions.html">Regions</a>
+      <a href="war.html">War</a>
+      <a href="codex.html">Codex</a>
+      <a href="works.html">Works</a>
+    </nav>
+    <p class="foot-close">The Father casts no shadow.</p>
+  </footer>
+
+  <div class="veil" id="enter-veil" aria-hidden="true" role="dialog" aria-labelledby="veil-title">
+    <button class="veil-close" type="button" data-close-enter>Close</button>
+    <div class="veil-card" data-altar>
+      <div class="mark-altar"><img src="img/serpents-eye.svg" alt=""></div>
+      <p class="kicker">Enter</p>
+      <h2 id="veil-title">THE ORDER KEEPS THE READING</h2>
+      <p class="lede">Leave an address. Nothing is sent. This altar holds names only in your browser.</p>
+      <form data-capture>
+        <label class="field"><span>Name</span><input type="text" name="name" autocomplete="name"></label>
+        <label class="field"><span>Address</span><input type="email" name="email" autocomplete="email" required></label>
+        <button class="btn-gold" type="submit">I will keep the hour</button>
+      </form>
+      <div class="form-ok" role="status"><h3>The hour is noted.</h3><p>Nothing has left this machine.</p></div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
