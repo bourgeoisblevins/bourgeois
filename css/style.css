@@ -1629,3 +1629,52 @@ body.heat-works .works-board .hero-lede {
   .slab img { object-fit: cover; }
   body.heat-home .terrace { min-height: 42vw; }
 }
+
+
+.people-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 48px;
+}
+.person {
+  display: grid;
+  grid-template-columns: minmax(120px, 200px) minmax(0, 1fr);
+  gap: 24px 28px;
+  align-items: center;
+  padding: 28px 0;
+  border-top: 1px solid var(--line-dim);
+}
+.person:nth-child(2) { margin-left: 6%; }
+.person:nth-child(3) { margin-left: 12%; }
+.person:nth-child(4) { margin-left: 8%; }
+.person:nth-child(5) { margin-left: 16%; }
+.person:nth-child(6) { margin-left: 10%; }
+.slab-person {
+  aspect-ratio: 3 / 4;
+  height: auto;
+}
+.person h3 {
+  margin-top: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+}
+.person p { margin: 0; color: var(--ash); font-size: 1.08rem; }
+.shot-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 40px 0 48px;
+}
+.slab-shot {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+.reviews .review { margin-bottom: 40px; }
+@media (max-width: 720px), (orientation: portrait) {
+  .person {
+    grid-template-columns: 1fr;
+    margin-left: 0 !important;
+  }
+  .slab-person { max-width: 280px; }
+}
