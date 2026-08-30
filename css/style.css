@@ -287,19 +287,44 @@ button { cursor: pointer; }
 
 .mark-altar {
   position: relative;
-  width: 112px;
-  height: 112px;
+  width: 176px;
+  height: 176px;
   margin-bottom: 48px;
 }
+.mark-altar::after {
+  content: "";
+  position: absolute;
+  inset: -32%;
+  background: radial-gradient(circle, rgba(232, 197, 71, 0.22) 0%, rgba(201, 162, 39, 0.08) 42%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
 .mark-altar img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 0 10px rgba(232, 197, 71, 0.28));
+  filter:
+    drop-shadow(0 0 6px rgba(232, 197, 71, 0.5))
+    drop-shadow(0 0 18px rgba(232, 197, 71, 0.28))
+    drop-shadow(0 0 40px rgba(201, 162, 39, 0.16));
   animation: eye-wake 6s var(--ease-ritual) infinite alternate;
 }
 @keyframes eye-wake {
-  from { filter: drop-shadow(0 0 6px rgba(232, 197, 71, 0.18)); opacity: 0.88; }
-  to { filter: drop-shadow(0 0 16px rgba(232, 197, 71, 0.45)); opacity: 1; }
+  from {
+    filter:
+      drop-shadow(0 0 4px rgba(232, 197, 71, 0.32))
+      drop-shadow(0 0 12px rgba(232, 197, 71, 0.16))
+      drop-shadow(0 0 28px rgba(201, 162, 39, 0.08));
+    opacity: 0.92;
+  }
+  to {
+    filter:
+      drop-shadow(0 0 10px rgba(232, 197, 71, 0.58))
+      drop-shadow(0 0 26px rgba(232, 197, 71, 0.34))
+      drop-shadow(0 0 52px rgba(201, 162, 39, 0.2));
+    opacity: 1;
+  }
 }
 
 .hero-kicker {
@@ -308,7 +333,7 @@ button { cursor: pointer; }
   font-weight: 500;
   letter-spacing: 0.38em;
   text-transform: uppercase;
-  color: var(--temple);
+  color: var(--ash);
   margin: 0 0 20px;
 }
 
@@ -452,7 +477,7 @@ button { cursor: pointer; }
   font-weight: 500;
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: var(--temple);
+  color: var(--ash);
   margin: 0 0 16px;
 }
 
@@ -842,11 +867,15 @@ form.is-done { display: none; }
    -------------------------------------------------------------------------- */
 
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+html.js .reveal {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 1.1s var(--ease-ritual), transform 1.1s var(--ease-ritual);
 }
-.reveal.is-in {
+html.js .reveal.is-in {
   opacity: 1;
   transform: none;
 }
@@ -942,7 +971,11 @@ form.is-done { display: none; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal { opacity: 1; transform: none; }
+  .reveal,
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* --------------------------------------------------------------------------
