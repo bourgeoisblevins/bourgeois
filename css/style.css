@@ -1273,6 +1273,8 @@ body.heat-order .rites-jump:hover { color: var(--illumination); }
   background: var(--obsidian);
 }
 .slab img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1328,13 +1330,13 @@ a:hover > .slab img,
 /* Quiet stills — atmosphere, not a second altar */
 .slab-quiet {
   display: block;
-  height: 280px;
+  height: auto;
+  aspect-ratio: 16 / 9;
   border-left: 0;
   border-right: 0;
   margin: 0;
 }
 .slab-quiet img {
-  height: 280px;
   object-position: center 58%;
   filter: brightness(0.52) saturate(0.78);
 }
@@ -1343,20 +1345,20 @@ a:hover > .slab img,
 }
 
 .slab-region {
-  height: 320px;
+  height: auto;
+  aspect-ratio: 16 / 9;
   margin: 0 0 40px;
 }
 .slab-region img {
-  height: 320px;
   object-position: center 46%;
 }
 
 .slab-house {
-  height: 288px;
+  height: auto;
+  aspect-ratio: 16 / 9;
   margin: 32px 0 0;
 }
-.slab-house img {
-  height: 288px;
+ .slab-house img {
   object-position: center 55%;
 }
 
@@ -1576,26 +1578,26 @@ body.heat-works .works-board .hero-lede {
     gap: 0;
   }
   .slab-poster {
-    aspect-ratio: 16 / 10;
-    min-height: 200px;
+    aspect-ratio: 2 / 3;
+    min-height: 0;
   }
   .works-heat,
-  .slab-tall,
-  .slab-tall img { min-height: 280px; height: 280px; }
-  .slab-quiet,
-  .slab-quiet img { height: 200px; }
-  .slab-region,
-  .slab-region img { height: 220px; }
+  .slab-tall {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+  .slab-tall img { min-height: 0; height: 100%; }
+  .slab-quiet { aspect-ratio: 16 / 9; height: auto; }
+  .slab-region { aspect-ratio: 16 / 9; height: auto; }
   .slab-house,
-  .slab-house img,
-  .slab-arch,
-  .slab-arch img { height: 200px; }
+  .slab-arch { aspect-ratio: 16 / 9; height: auto; }
   .slab-far {
     width: 72%;
-    height: 120px;
+    height: auto;
+    aspect-ratio: 16 / 7;
     margin: 0 24px 0 auto;
   }
-  .slab-far img { height: 120px; }
   .war-still { padding: 8px 24px 40px; }
   body.heat-home .terrace-copy { padding: 24px; min-height: 168px; }
   body.heat-home .terrace,
@@ -1606,4 +1608,24 @@ body.heat-works .works-board .hero-lede {
 @media print {
   .slab img { filter: none; }
   .slab::after { display: none; }
+}
+
+
+.offering-hand {
+  grid-template-columns: 1fr;
+  margin-left: 8%;
+  margin-top: 20px;
+}
+.offering-hand-2 { margin-left: 18%; }
+.handheld-kicker {
+  margin: 64px 0 0;
+}
+@media (max-width: 960px) {
+  .offering-hand,
+  .offering-hand-2 { margin-left: 0; }
+}
+@media (orientation: portrait) {
+  .slab-poster { aspect-ratio: 2 / 3; }
+  .slab img { object-fit: cover; }
+  body.heat-home .terrace { min-height: 42vw; }
 }
