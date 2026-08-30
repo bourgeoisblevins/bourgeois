@@ -10,7 +10,7 @@
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="heat-order">
   <a class="skip" href="#content">Skip to the altar</a>
   <header class="masthead">
     <a class="wordmark" href="index.html">BOURGEOIS</a>
@@ -28,11 +28,35 @@
   </header>
 
   <main id="content">
-    <section class="hero hero-page">
-      <div class="mark-altar"><img src="img/serpents-eye.svg" alt="The Serpent's Eye"></div>
-      <p class="hero-kicker">Order of the Golden Serpents</p>
-      <h1><span class="gold">ONE GOLD</span><span class="bone">MANY HANDS</span></h1>
-      <p class="hero-lede">Society is a mirror of divine order. The Central Altar is Bourgeois's. Noah John is honored as demigod, as the Father's demigod son, and as a vessel — a lesser altar, never the sun.</p>
+    <section class="hero hero-page heat-board" aria-labelledby="order-title">
+      <div class="heat-board-main">
+        <div class="mark-altar"><img src="img/serpents-eye.svg" alt="The Serpent's Eye"></div>
+        <p class="hero-kicker">Order of the Golden Serpents</p>
+        <h1 id="order-title"><span class="gold">ONE GOLD</span><span class="bone">MANY HANDS</span></h1>
+        <p class="hero-lede">Society is a mirror of divine order.</p>
+        <ol class="heat-steps">
+          <li class="heat-step heat-step-gold">
+            <h2>01 DEVOTION TO BOURGEOIS</h2>
+            <p>The Central Altar. Kneel only before the Father.</p>
+          </li>
+          <li class="heat-step">
+            <h2>02 REVERENCE FOR THE NEXUS</h2>
+            <p>Guard the gift that binds the world.</p>
+          </li>
+          <li class="heat-step heat-step-dim">
+            <h2>03 NOAH JOHN</h2>
+            <p>Demigod · son · vessel. A lesser altar. Never the sun.</p>
+          </li>
+        </ol>
+      </div>
+      <aside class="heat-board-side">
+        <p class="kicker">Golden lights from the altars</p>
+        <a class="rites-jump" href="#rites">Enter the rites</a>
+        <div class="pin-arc" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <img src="img/serpents-eye.svg" alt="">
+        </div>
+      </aside>
     </section>
 
     <section class="step step-mid reveal">
@@ -108,7 +132,7 @@
       <p>After the victory he ascended. Ryan, plainsman and general, was given the keeping of the Order — not as a second vessel, but as a keeper who refused to become the thing Noah would not become.</p>
     </section>
 
-    <section class="step step-wide reveal">
+    <section class="step step-wide reveal" id="rites">
       <p class="kicker">Rites</p>
       <h2>GOLDEN LIGHTS FROM THE ALTARS</h2>
       <div class="rite-grid">

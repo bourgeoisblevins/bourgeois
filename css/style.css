@@ -1005,3 +1005,254 @@ html.js .reveal.is-in {
 .form-ok p { color: var(--ash); }
 
 html { scroll-padding-top: var(--header-h); }
+
+/* --------------------------------------------------------------------------
+   Heat boards — homepage + Order only (War untouched)
+   -------------------------------------------------------------------------- */
+
+body.heat-home .btn-enter,
+body.heat-order .btn-enter {
+  font-family: var(--font-display);
+  letter-spacing: 0.28em;
+  font-weight: 400;
+}
+
+body.heat-home .crimson-moon {
+  top: 40px;
+  right: 5%;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  box-shadow: none;
+  border: 1px solid rgba(139, 30, 45, 0.55);
+}
+body.heat-home .crimson-moon::after { display: none; }
+
+body.heat-home .hero {
+  min-height: calc(100vh - var(--header-h) - 220px);
+  padding: 72px 24px 40px;
+}
+body.heat-home .hero::before {
+  inset: 12% 18% 30%;
+  background: radial-gradient(ellipse at center, rgba(232, 197, 71, 0.2) 0%, rgba(201, 162, 39, 0.06) 46%, transparent 72%);
+}
+body.heat-home .mark-altar {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 0;
+}
+body.heat-home .altar-stem {
+  width: 1px;
+  height: 48px;
+  margin: 20px auto 28px;
+  background: linear-gradient(to bottom, var(--nexus), var(--temple));
+}
+body.heat-home .scroll-cue {
+  position: static;
+  transform: none;
+  margin: 40px auto 0;
+  color: var(--bone);
+  text-decoration: none;
+  display: inline-block;
+}
+body.heat-home .scroll-cue:hover { color: var(--illumination); }
+body.heat-home .scroll-cue::after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 10px auto 0;
+  background: none;
+  border-right: 1px solid var(--nexus);
+  border-bottom: 1px solid var(--nexus);
+  transform: rotate(45deg);
+}
+
+body.heat-home .terraces {
+  padding: 0 56px 96px;
+  gap: 0;
+}
+body.heat-home .terrace {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 32px;
+  padding: 22px 32px;
+  border: 1px solid var(--line);
+  margin-top: -1px;
+  background: var(--obsidian);
+}
+body.heat-home .terrace-name {
+  color: var(--bone);
+  margin: 0;
+}
+body.heat-home .terrace-tag { margin: 0; }
+body.heat-home .terrace-sandria {
+  width: 100%;
+  align-self: stretch;
+  text-align: left;
+  background: var(--obsidian);
+}
+body.heat-home .terrace-sandria .terrace-name { color: var(--bone); }
+body.heat-home .terrace-sakura {
+  width: 88%;
+  align-self: flex-end;
+  text-align: left;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  background: var(--obsidian);
+}
+body.heat-home .terrace-sakura .terrace-name { color: var(--bone); }
+body.heat-home .terrace-saffrika {
+  width: 76%;
+  align-self: flex-end;
+  text-align: left;
+  margin-right: 0;
+  background: var(--obsidian);
+}
+body.heat-home .terrace-saffrika .terrace-name {
+  color: var(--bone);
+  border-bottom: 1px solid var(--saffrika);
+  padding-bottom: 4px;
+}
+
+/* Order board: left altar + steps, right rites */
+body.heat-order .hero.heat-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.7fr);
+  align-items: start;
+  text-align: left;
+  min-height: calc(100vh - var(--header-h));
+  padding: 72px 56px 80px;
+  gap: 48px 64px;
+  justify-content: stretch;
+}
+body.heat-order .hero.heat-board::before {
+  inset: 8% 42% 40% 6%;
+}
+body.heat-order .heat-board-main {
+  max-width: 640px;
+}
+body.heat-order .heat-board .mark-altar {
+  width: 96px;
+  height: 96px;
+  margin: 0 0 28px;
+}
+body.heat-order .heat-board .hero-kicker,
+body.heat-order .heat-board h1,
+body.heat-order .heat-board .hero-lede {
+  text-align: left;
+}
+body.heat-order .heat-board .hero-lede {
+  margin: 16px 0 48px;
+  max-width: none;
+  font-style: normal;
+  color: var(--ash);
+}
+body.heat-order .heat-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+body.heat-order .heat-step {
+  border: 1px solid var(--line);
+  padding: 22px 28px 24px;
+  margin-top: -1px;
+  background: var(--obsidian);
+}
+body.heat-order .heat-step:nth-child(2) { margin-left: 10%; }
+body.heat-order .heat-step:nth-child(3) { margin-left: 22%; }
+body.heat-order .heat-step h2 {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: var(--bone);
+  margin: 0 0 8px;
+}
+body.heat-order .heat-step p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--ash);
+  font-style: italic;
+}
+body.heat-order .heat-step-gold {
+  background: radial-gradient(ellipse at 0% 0%, rgba(201, 162, 39, 0.16), transparent 58%);
+}
+body.heat-order .heat-step-gold h2 { color: var(--nexus); }
+body.heat-order .heat-step-dim {
+  opacity: 0.62;
+}
+body.heat-order .heat-board-side {
+  align-self: center;
+  text-align: center;
+  padding-top: 48px;
+}
+body.heat-order .heat-board-side .kicker {
+  margin-bottom: 12px;
+}
+body.heat-order .rites-jump {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 0.14em;
+  color: var(--bone);
+  margin-bottom: 28px;
+}
+body.heat-order .rites-jump:hover { color: var(--illumination); }
+
+.pin-arc {
+  position: relative;
+  width: 220px;
+  height: 128px;
+  margin: 0 auto;
+}
+.pin-arc img {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 52px;
+  height: 52px;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 10px rgba(232, 197, 71, 0.4));
+}
+.pin-arc span {
+  position: absolute;
+  bottom: 46px;
+  width: 1px;
+  background: linear-gradient(to top, var(--nexus), transparent);
+  transform-origin: bottom center;
+}
+.pin-arc span::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--nexus);
+  box-shadow: 0 0 8px rgba(232, 197, 71, 0.7);
+  transform: translateX(-50%);
+}
+.pin-arc span:nth-child(1) { left: 18px; height: 36px; transform: rotate(-38deg); }
+.pin-arc span:nth-child(2) { left: 52px; height: 52px; transform: rotate(-18deg); }
+.pin-arc span:nth-child(3) { left: 109px; height: 62px; }
+.pin-arc span:nth-child(4) { left: 166px; height: 52px; transform: rotate(18deg); }
+.pin-arc span:nth-child(5) { left: 200px; height: 36px; transform: rotate(38deg); }
+
+@media (max-width: 900px) {
+  body.heat-order .hero.heat-board {
+    grid-template-columns: 1fr;
+    padding: 64px 24px 72px;
+  }
+  body.heat-order .heat-board-side { padding-top: 8px; }
+  body.heat-home .terraces { padding: 0 20px 72px; }
+  body.heat-home .terrace-sakura,
+  body.heat-home .terrace-saffrika { width: 100%; }
+  body.heat-order .heat-step:nth-child(2),
+  body.heat-order .heat-step:nth-child(3) { margin-left: 0; }
+}
