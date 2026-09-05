@@ -1943,24 +1943,25 @@ body.heat-order .heat-step {
 [data-theme="cult"] .from {
   color: var(--ember);
 }
-/* Titles of cult figures / section headers — trim, not every link */
-#apostles.theme-cult h2,
-#apostles.theme-cult h3,
+/* Ember trim only: kickers/.from already set above; apostle names OK as trim.
+   Illuminated .gold + links stay brand-gold — never ember. */
 .theme-cult .person h3,
-[data-theme="cult"].person h3 {
+[data-theme="cult"].person h3,
+article.theme-cult h3 {
   color: var(--ember);
 }
+.theme-cult .gold,
 #apostles.theme-cult h2 .gold,
-.theme-cult .gold {
-  color: var(--brand-gold);
+.theme-cult h2 .gold {
+  color: var(--brand-gold) !important;
 }
-/* Links stay Nexus gold even inside cult sections */
-.theme-cult a {
-  color: var(--brand-gold);
+.theme-cult a,
+.theme-cult a:visited {
+  color: var(--brand-gold) !important;
   border-bottom-color: rgba(201, 162, 39, 0.35);
 }
 .theme-cult a:hover {
-  color: var(--brand-illumination);
+  color: var(--brand-illumination) !important;
 }
 .theme-cult .slab {
   border-color: rgba(139, 30, 45, 0.45);
