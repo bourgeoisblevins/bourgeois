@@ -2134,3 +2134,112 @@ body.heat-home .terrace .slab {
     padding-top: calc(var(--header-h, 64px) + 12px);
   }
 }
+
+
+/* --------------------------------------------------------------------------
+   Theme toggle (nav dropdown + desktop nav row)
+   -------------------------------------------------------------------------- */
+.theme-toggle {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ash);
+  background: transparent;
+  border: 0;
+  padding: 8px 4px;
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--bone); }
+.theme-toggle[aria-pressed="true"] { color: var(--nexus); }
+
+@media (max-width: 960px) {
+  .theme-toggle {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 16px 24px;
+    border-top: 1px solid var(--line-dim);
+    color: var(--ash);
+  }
+  .theme-toggle:hover { color: var(--bone); }
+}
+
+/* --------------------------------------------------------------------------
+   Light mode — day altar. Gold stays light; ground becomes Bone/Stone.
+   Brand: not a white SaaS sheet. Quiet + Eye unchanged in shape.
+   -------------------------------------------------------------------------- */
+html[data-theme="light"] {
+  --obsidian: #E8DCC8;
+  --stone: #D4C8B4;
+  --bg: #E8DCC8;
+  --text: #1C1814;
+  --bone: #1C1814;
+  --ash: #4A443C;
+  --smoke: #6B6458;
+  --line: rgba(138, 110, 31, 0.55);
+  --line-dim: rgba(138, 110, 31, 0.28);
+  color-scheme: light;
+}
+html[data-theme="light"] body {
+  background: var(--bg);
+  color: var(--text);
+}
+html[data-theme="light"] .masthead {
+  background: rgba(232, 220, 200, 0.97);
+  box-shadow: 0 1px 0 rgba(138, 110, 31, 0.12);
+}
+html[data-theme="light"] .nav-primary a:hover { color: var(--stone); }
+html[data-theme="light"] .nav-primary a { color: var(--ash); }
+html[data-theme="light"] .nav-primary a[aria-current="page"] { color: var(--nexus); }
+@media (max-width: 960px) {
+  html[data-theme="light"] .nav-primary {
+    background: var(--obsidian);
+  }
+}
+html[data-theme="light"] .slab,
+html[data-theme="light"] .person-land .slab-person {
+  border-color: rgba(138, 110, 31, 0.55) !important;
+}
+html[data-theme="light"] .slab::after,
+html[data-theme="light"] .person-land .slab-person::after {
+  /* Fade into light ground */
+  background: linear-gradient(to top,
+    var(--bg) 0%,
+    rgba(232, 220, 200, 0.95) 12%,
+    rgba(232, 220, 200, 0.7) 28%,
+    rgba(232, 220, 200, 0.25) 42%,
+    transparent 55%);
+}
+html[data-theme="light"] .person-land h3,
+html[data-theme="light"] .person-land p {
+  text-shadow: 0 1px 10px rgba(232, 220, 200, 0.85);
+}
+html[data-theme="light"] .site-foot {
+  background: #D9CDB8;
+  border-top-color: var(--line);
+}
+html[data-theme="light"] .page-rail {
+  background: #DED2BC;
+}
+html[data-theme="light"] .veil {
+  background: rgba(232, 220, 200, 0.92);
+}
+html[data-theme="light"] .veil-card {
+  background: #E8DCC8;
+  border-color: var(--line);
+}
+html[data-theme="light"] .office,
+html[data-theme="light"] .disciple,
+html[data-theme="light"] .rite,
+html[data-theme="light"] .tenet,
+html[data-theme="light"] .related-list li {
+  background: linear-gradient(180deg, #E2D6C2 0%, #E8DCC8 55%);
+}
+html[data-theme="light"] body.heat-home .terrace {
+  background: #E2D6C2;
+}
+html[data-theme="light"] .step p.lede { color: #3A342C; }
+html[data-theme="light"] .hero-lede { color: #3A342C; }
+html[data-theme="light"] .foot-close { color: var(--ash); }
