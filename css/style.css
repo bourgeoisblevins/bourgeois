@@ -2292,3 +2292,22 @@ html[data-theme="light"] .theme-cult .from,
 html[data-theme="light"] .theme-cult .person h3 {
   color: var(--ember);
 }
+
+
+/* --------------------------------------------------------------------------
+   person-land stacks — Brand: all portrait vessels use this format.
+   -------------------------------------------------------------------------- */
+.person.person-land {
+  display: flex;
+  grid-template-columns: none;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 0;
+  border-top: 0;
+  align-items: stretch;
+}
+.people-steps:has(> .person-land) {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
