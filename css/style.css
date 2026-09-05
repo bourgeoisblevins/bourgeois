@@ -1943,25 +1943,30 @@ body.heat-order .heat-step {
 [data-theme="cult"] .from {
   color: var(--ember);
 }
-.theme-cult h2,
-.theme-cult h3,
-[data-theme="cult"] h2,
-[data-theme="cult"] h3 {
+/* Titles of cult figures / section headers — trim, not every link */
+#apostles.theme-cult h2,
+#apostles.theme-cult h3,
+.theme-cult .person h3,
+[data-theme="cult"].person h3 {
   color: var(--ember);
 }
-.theme-cult h2 .gold,
-.theme-cult .gold {
+#apostles.theme-cult h2 .gold {
   color: var(--ember);
 }
+/* Links stay Nexus gold even inside cult sections */
 .theme-cult a {
-  color: var(--ember);
-  border-bottom-color: rgba(180, 35, 52, 0.35);
+  color: var(--brand-gold);
+  border-bottom-color: rgba(201, 162, 39, 0.35);
 }
 .theme-cult a:hover {
-  color: #D45A66;
+  color: var(--brand-illumination);
 }
 .theme-cult .slab {
   border-color: rgba(139, 30, 45, 0.45);
+}
+/* War hero Usurper line may use ember as punctuation without body remap */
+.page-war .hero h1 .gold {
+  color: var(--ember);
 }
 .theme-cult .slab::before {
   background: radial-gradient(ellipse at 48% 40%, rgba(180, 35, 52, 0.1) 0%, transparent 58%);
@@ -1992,7 +1997,4 @@ body.theme-cult .mark-altar {
 /* Quiet altar stills: keep sharp corners; still get bottom dissolve */
 .slab-quiet {
   border-radius: 0 !important;
-}
-
-  mask-image: none;
 }
