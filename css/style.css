@@ -50,6 +50,7 @@
   --quiet: var(--smoke);
   --line: rgba(138, 110, 31, 0.45);
   --line-dim: rgba(138, 110, 31, 0.22);
+  --radius-vessel: 18px;
 
   --font-display: "Cinzel", "Palatino Linotype", Palatino, serif;
   --font-body: "Cormorant Garamond", "Garamond", "Times New Roman", serif;
@@ -1277,8 +1278,10 @@ body.heat-order .rites-jump:hover { color: var(--illumination); }
   position: relative;
   margin: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 3px solid rgba(201, 162, 39, 0.62);
+  border-radius: var(--radius-vessel, 18px);
   background: var(--obsidian);
+  box-shadow: inset 0 0 0 1px rgba(11, 10, 9, 0.35);
 }
 .slab img {
   position: absolute;
@@ -1289,8 +1292,8 @@ body.heat-order .rites-jump:hover { color: var(--illumination); }
   object-position: center;
   filter: brightness(0.68) saturate(0.82);
   transition: filter var(--dur-coil) var(--ease-ritual);
-  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 22%, #000 100%);
-  mask-image: linear-gradient(to top, transparent 0%, #000 22%, #000 100%);
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 .slab::before {
   content: "";
@@ -1308,10 +1311,10 @@ body.heat-order .rites-jump:hover { color: var(--illumination); }
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  /* Bottom dissolve only — obsidian → transparent. No glass / backdrop-filter. */
+  /* Soft bottom dissolve into the page. No glass. */
   background:
-    linear-gradient(to top, var(--bg) 0%, rgba(11, 10, 9, 0.92) 14%, rgba(11, 10, 9, 0.5) 36%, rgba(11, 10, 9, 0.15) 55%, transparent 74%),
-    radial-gradient(ellipse at center, transparent 42%, rgba(11, 10, 9, 0.5) 100%);
+    linear-gradient(to top, var(--bg) 0%, rgba(11, 10, 9, 0.75) 18%, transparent 55%),
+    radial-gradient(ellipse at center, transparent 48%, rgba(11, 10, 9, 0.4) 100%);
 }
 .slab:hover::before,
 a:hover > .slab::before,
@@ -1361,8 +1364,7 @@ a:hover > .slab img,
   aspect-ratio: 16 / 9;
   width: min(100%, 1100px);
   margin: 0 auto 40px;
-  border-radius: var(--radius-vessel) var(--radius-vessel) 0 0;
-  border-bottom: 0;
+  border-radius: var(--radius-vessel, 18px);
 }
 .slab-region img {
   object-position: center 46%;
@@ -1669,39 +1671,88 @@ body.heat-works .works-board .hero-lede {
   aspect-ratio: 3 / 4;
   height: auto;
   width: 100%;
-  border-radius: var(--radius-vessel) var(--radius-vessel) 0 0;
-  border-bottom: 0;
+  border-radius: var(--radius-vessel, 18px);
   overflow: hidden;
 }
+
+/* Land portraits: image is the frame; copy sits ON the fade, not below a blocking slab.
+   Pulls under preceding prose so text above rides the top dissolve. */
 .person-land {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: min(880px, 100%);
-  margin: 48px auto 0;
+  position: relative;
+  display: block;
+  max-width: min(920px, 100%);
+  margin: -72px auto 56px;
   padding: 0;
+  border: 0;
   border-top: 0;
   grid-template-columns: none;
+  min-height: clamp(420px, 118vw, 720px);
+  z-index: 1;
 }
 .person-land .slab-person {
-  width: min(100%, 760px);
+  position: absolute;
+  inset: 0;
+  width: 100%;
   max-width: none;
-  margin: 0 auto;
-  aspect-ratio: 4 / 5;
+  margin: 0;
+  aspect-ratio: auto;
+  height: 100%;
+  border-radius: var(--radius-vessel, 18px);
+  border: 3px solid rgba(201, 162, 39, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(11, 10, 9, 0.4);
+  z-index: 0;
+  pointer-events: none;
+}
+.person-land .slab-person img {
+  /* Solid through the middle; dissolve at top (prose over) and bottom (bio over) */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 58%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 58%, transparent 100%);
+  filter: brightness(0.72) saturate(0.88);
+}
+.person-land .slab-person::after {
+  /* Page color washes so preceding/following text stay readable over the frame */
+  background:
+    linear-gradient(to bottom,
+      var(--bg) 0%,
+      rgba(11, 10, 9, 0.82) 8%,
+      rgba(11, 10, 9, 0.25) 22%,
+      transparent 38%,
+      transparent 52%,
+      rgba(11, 10, 9, 0.55) 72%,
+      rgba(11, 10, 9, 0.94) 100%);
+}
+.person-land .slab-person::before {
+  opacity: 0.35;
 }
 .person-land > div {
-  width: min(100%, 640px);
-  margin-top: -28px;
   position: relative;
-  z-index: 3;
+  z-index: 2;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(210px, 58vw, 380px) 22px 28px;
   text-align: left;
-  padding: 0 8px;
+  background: transparent;
 }
 .person-land .from { color: var(--ash); }
 .person-land h3 {
   font-size: clamp(1.4rem, 4vw, 2rem);
   letter-spacing: 0.14em;
   color: var(--nexus);
+  text-shadow: 0 1px 12px rgba(11, 10, 9, 0.85);
+}
+.person-land p {
+  color: var(--bone);
+  text-shadow: 0 1px 10px rgba(11, 10, 9, 0.8);
+}
+
+/* Preceding section prose rides above the pulled frame */
+.step > p,
+.step > .lede,
+.step > .kicker,
+.step > h2 {
+  position: relative;
+  z-index: 3;
 }
 .person h3 {
   margin-top: 0;
@@ -1726,7 +1777,9 @@ body.heat-works .works-board .hero-lede {
     margin-left: 0 !important;
   }
   .slab-person { max-width: min(100%, 520px); margin-inline: auto; }
-  .person-land .slab-person { max-width: none; width: 100%; }
+  .person-land { margin-top: -48px; min-height: clamp(380px, 130vw, 640px); }
+  .person-land .slab-person { max-width: none; width: auto; inset: 0; }
+  .person-land > div { padding: clamp(180px, 62vw, 340px) 18px 24px; }
 }
 
 .imdb-hair {
@@ -1999,5 +2052,50 @@ body.theme-cult .mark-altar {
 
 /* Quiet altar stills: keep sharp corners; still get bottom dissolve */
 .slab-quiet {
+  border-radius: 0 !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   Ryan 2026-09-05: thicker rounded frames sitewide; land portraits under copy.
+   -------------------------------------------------------------------------- */
+:root {
+  --radius-vessel: 18px;
+  --frame-border: 3px solid rgba(201, 162, 39, 0.68);
+}
+.slab,
+.slab-person,
+.slab-region,
+.slab-house,
+.slab-arch,
+.slab-shot,
+.slab-poster,
+.slab-far,
+.slab-quiet {
+  border-radius: var(--radius-vessel) !important;
+}
+.slab,
+.slab-person,
+.slab-region,
+.slab-house,
+.slab-arch,
+.slab-shot,
+.slab-poster {
+  border: var(--frame-border) !important;
+}
+.slab-quiet {
+  border-left: var(--frame-border) !important;
+  border-right: var(--frame-border) !important;
+}
+.slab-far {
+  border: var(--frame-border) !important;
+}
+body.heat-home .terrace {
+  border-radius: var(--radius-vessel);
+  border: var(--frame-border);
+  overflow: hidden;
+}
+body.heat-home .terrace .slab {
+  border: 0 !important;
   border-radius: 0 !important;
 }
