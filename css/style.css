@@ -2138,50 +2138,90 @@ body.heat-home .terrace .slab {
 
 
 /* --------------------------------------------------------------------------
-   Theme toggle — hairline ritual control in open nav. Not an iOS switch.
+   Theme toggle — gold LINE sun ↔ crescent. Ritual morph, not iOS switch.
    -------------------------------------------------------------------------- */
 .theme-toggle {
-  font-family: var(--font-ui);
-  font-size: 0.68rem;
-  font-weight: 400;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--ash);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  padding: 10px 4px 8px;
+  margin-top: 4px;
   background: transparent;
   border: 0;
   border-top: 1px solid var(--line-dim);
-  padding: 10px 4px 8px;
-  margin-top: 4px;
+  color: var(--nexus);
   cursor: pointer;
 }
-.theme-toggle:hover { color: var(--nexus); }
-.theme-toggle[aria-pressed="true"] { color: var(--nexus); }
-
+.theme-toggle:hover { color: var(--illumination); }
+.theme-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  overflow: visible;
+}
+.theme-icon .sun,
+.theme-icon .moon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: 12px 12px;
+  transition:
+    opacity 520ms var(--ease-ritual, cubic-bezier(0.22, 0.61, 0.36, 1)),
+    transform 520ms var(--ease-ritual, cubic-bezier(0.22, 0.61, 0.36, 1));
+}
+.theme-icon .sun-core { fill: none; }
+.theme-icon .ray { stroke-width: 1.25; }
+/* Dark mode shows sun (tap for light). Light mode shows moon (tap for dark). */
+html[data-theme="dark"] .theme-icon .sun,
+html:not([data-theme="light"]) .theme-icon .sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+html[data-theme="dark"] .theme-icon .moon,
+html:not([data-theme="light"]) .theme-icon .moon {
+  opacity: 0;
+  transform: rotate(-30deg) scale(0.6);
+}
+html[data-theme="light"] .theme-icon .sun {
+  opacity: 0;
+  transform: rotate(40deg) scale(0.55);
+}
+html[data-theme="light"] .theme-icon .moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
 @media (max-width: 960px) {
   .theme-toggle {
-    display: block;
+    display: flex;
     width: 100%;
-    text-align: left;
     padding: 16px 24px;
     margin-top: 0;
     border-top: 1px solid var(--line-dim);
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .theme-icon .sun,
+  .theme-icon .moon { transition: none; }
+}
 
 /* --------------------------------------------------------------------------
-   Light mode — temple day (Brand). Bone ground, NOT white. Gold stays light.
+   Light mode — temple day. Wipe night fills. Bone ground, ink type, gold light.
    -------------------------------------------------------------------------- */
 html[data-theme="light"] {
-  /* Ground = Bone parchment. Keep Stone as ink (#1C1814). Do not invent grey cards. */
   --bg: #E8DCC8;
   --obsidian: #E8DCC8;
+  --stone: #DED2BC; /* parchment mid for band fills — NOT ink */
+  --ink: #1C1814;
   --text: #0B0A09;
-  --bone: #0B0A09;
+  --bone: #0B0A09; /* type ink on parchment */
   --ash: #4A443C;
   --smoke: #6B6458;
   --line: rgba(138, 110, 31, 0.5);
   --line-dim: rgba(138, 110, 31, 0.28);
-  /* Gold / crimson tokens stay brand values via --brand-gold / --crimson */
   --nexus: var(--brand-gold, #C9A227);
   --illumination: var(--brand-illumination, #E8C547);
   --temple: var(--brand-temple, #8A6E1F);
@@ -2191,39 +2231,96 @@ html[data-theme="light"] body {
   background: var(--bg);
   color: var(--text);
 }
+
+/* Night fills → parchment */
+html[data-theme="light"] .step-inset,
+html[data-theme="light"] .step-stone,
+html[data-theme="light"] .hero,
+html[data-theme="light"] .hero-page,
+html[data-theme="light"] .terrace,
+html[data-theme="light"] .terrace-sandria,
+html[data-theme="light"] .terrace-sakura,
+html[data-theme="light"] .terrace-saffrika,
+html[data-theme="light"] .terrace-sandria:hover,
+html[data-theme="light"] .terrace-sakura:hover,
+html[data-theme="light"] .terrace-saffrika:hover,
+html[data-theme="light"] body.heat-home .terrace,
+html[data-theme="light"] body.heat-home .terrace-sandria,
+html[data-theme="light"] body.heat-home .terrace-sakura,
+html[data-theme="light"] body.heat-home .terrace-saffrika,
+html[data-theme="light"] .page-rail,
+html[data-theme="light"] .office,
+html[data-theme="light"] .disciple,
+html[data-theme="light"] .rite,
+html[data-theme="light"] .tenet,
+html[data-theme="light"] .hierarchy li,
+html[data-theme="light"] .related-list li,
+html[data-theme="light"] body.heat-order .heat-step,
+html[data-theme="light"] .site-foot,
+html[data-theme="light"] .veil-card,
+html[data-theme="light"] .correction,
+html[data-theme="light"] .blevins-break {
+  background: var(--bg) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+html[data-theme="light"] .office,
+html[data-theme="light"] .disciple,
+html[data-theme="light"] .rite,
+html[data-theme="light"] .tenet,
+html[data-theme="light"] .hierarchy li,
+html[data-theme="light"] .related-list li,
+html[data-theme="light"] body.heat-order .heat-step,
+html[data-theme="light"] body.heat-home .terrace,
+html[data-theme="light"] .page-rail,
+html[data-theme="light"] .site-foot {
+  background: #E2D6C2 !important;
+  background-image: none !important;
+}
+html[data-theme="light"] .step-inset,
+html[data-theme="light"] .step-stone {
+  background: #DED2BC !important;
+  background-image: none !important;
+}
 html[data-theme="light"] .masthead {
-  background: #E8DCC8;
+  background: #E8DCC8 !important;
   border-bottom: 1px solid var(--line);
-  box-shadow: none; /* no soft UI shadow */
+  box-shadow: none !important;
 }
-html[data-theme="light"] .wordmark { color: var(--nexus); }
-html[data-theme="light"] .nav-primary a { color: var(--ash); }
-html[data-theme="light"] .nav-primary a:hover { color: var(--ink, #1C1814); }
-html[data-theme="light"] .theme-toggle:hover { color: var(--ink, #1C1814); }
-html[data-theme="light"] .nav-primary a[aria-current="page"] {
-  color: var(--nexus);
-  box-shadow: inset 0 -1px 0 var(--nexus);
+html[data-theme="light"] .veil {
+  background: rgba(232, 220, 200, 0.94) !important;
 }
-html[data-theme="light"] .btn-enter,
-html[data-theme="light"] .nav-toggle { color: var(--nexus); }
 @media (max-width: 960px) {
   html[data-theme="light"] .nav-primary {
-    background: #E8DCC8;
+    background: #E8DCC8 !important;
     border-bottom: 1px solid var(--line);
   }
 }
+
+/* Catch remaining night hex gradients on surfaces */
+html[data-theme="light"] [class*="terrace"],
+html[data-theme="light"] [class*="step"],
+html[data-theme="light"] [class*="heat"],
+html[data-theme="light"] [class*="office"],
+html[data-theme="light"] [class*="disciple"],
+html[data-theme="light"] [class*="related"],
+html[data-theme="light"] [class*="hierarchy"],
+html[data-theme="light"] [class*="page-rail"],
+html[data-theme="light"] [class*="site-foot"] {
+  /* do not force images/slabs */
+}
 html[data-theme="light"] .slab,
-html[data-theme="light"] .person-land .slab-person,
-html[data-theme="light"] .slab-region,
-html[data-theme="light"] .slab-poster {
+html[data-theme="light"] .person-land .slab-person {
+  /* framed vessels keep image; border only */
   border-color: rgba(138, 110, 31, 0.5) !important;
+  background-color: transparent;
 }
 html[data-theme="light"] .slab-quiet {
   border-radius: 0 !important;
   border-left: 0 !important;
   border-right: 0 !important;
+  background: transparent !important;
 }
-/* Eye stays gold line on both themes */
 html[data-theme="light"] .mark-altar::after {
   background: radial-gradient(circle, rgba(232, 197, 71, 0.28) 0%, rgba(201, 162, 39, 0.1) 42%, transparent 70%) !important;
 }
@@ -2234,57 +2331,51 @@ html[data-theme="light"] .person-land .slab-person::after {
     rgba(232, 220, 200, 0.95) 12%,
     rgba(232, 220, 200, 0.65) 28%,
     rgba(232, 220, 200, 0.2) 42%,
-    transparent 55%);
+    transparent 55%) !important;
 }
 html[data-theme="light"] .person-land h3,
 html[data-theme="light"] .person-land p {
+  color: var(--ink);
   text-shadow: 0 1px 8px rgba(232, 220, 200, 0.9);
 }
-html[data-theme="light"] .site-foot {
-  background: #DED2BC;
-  border-top: 1px solid var(--line);
+html[data-theme="light"] .person-land .from { color: var(--ash); }
+html[data-theme="light"] .wordmark,
+html[data-theme="light"] .btn-enter,
+html[data-theme="light"] .nav-toggle,
+html[data-theme="light"] .theme-toggle { color: var(--nexus); }
+html[data-theme="light"] .theme-toggle:hover { color: var(--illumination); }
+html[data-theme="light"] .nav-primary a { color: var(--ash); }
+html[data-theme="light"] .nav-primary a:hover { color: var(--ink); }
+html[data-theme="light"] .nav-primary a[aria-current="page"] {
+  color: var(--nexus);
+  box-shadow: inset 0 -1px 0 var(--nexus);
 }
-html[data-theme="light"] .page-rail {
-  background: #E2D6C2;
-}
-html[data-theme="light"] .veil {
-  background: rgba(232, 220, 200, 0.94);
-}
-html[data-theme="light"] .veil-card {
-  background: #E8DCC8;
-  border: 1px solid var(--line);
-  box-shadow: none;
-}
-/* Soft ash panels — parchment tint, not grey Material cards */
-html[data-theme="light"] .office,
-html[data-theme="light"] .disciple,
-html[data-theme="light"] .rite,
-html[data-theme="light"] .tenet,
-html[data-theme="light"] .related-list li,
-html[data-theme="light"] body.heat-order .heat-step {
-  background: #E2D6C2;
-  border-color: var(--line-dim);
-}
-html[data-theme="light"] body.heat-home .terrace {
-  background: #E2D6C2;
-  border-color: var(--line);
-}
+html[data-theme="light"] .step p,
+html[data-theme="light"] .step h2,
+html[data-theme="light"] .step h3 { color: var(--ink); }
 html[data-theme="light"] .step p.lede,
 html[data-theme="light"] .hero-lede { color: #3A342C; }
-html[data-theme="light"] .hero h1 .bone { color: #0B0A09; }
+html[data-theme="light"] .hero h1 .bone { color: var(--ink); }
 html[data-theme="light"] .hero h1 .gold { color: var(--nexus); }
-html[data-theme="light"] .page-war .hero h1 .gold { color: var(--ember); } /* Usurper punctuation */
-html[data-theme="light"] .foot-close { color: var(--ash); }
+html[data-theme="light"] .page-war .hero h1 .gold { color: var(--ember); }
 html[data-theme="light"] .kicker { color: var(--temple); }
+html[data-theme="light"] .foot-close,
+html[data-theme="light"] .foot-sub { color: var(--ash); }
+html[data-theme="light"] .hero::before {
+  background: radial-gradient(ellipse at center, rgba(201, 162, 39, 0.2) 0%, rgba(201, 162, 39, 0.05) 42%, transparent 70%);
+}
+html[data-theme="light"] .crimson-moon {
+  background: radial-gradient(circle at 38% 38%, #8B1E2D 0%, #5a1420 70%);
+}
 
-/* Cult in light: darker inset band — crimson trim, not a red wash of the page */
+/* Cult: darker parchment inset + crimson trim — not a red wash */
 html[data-theme="light"] .theme-cult,
 html[data-theme="light"] [data-theme="cult"],
 html[data-theme="light"] #apostles.theme-cult,
 html[data-theme="light"] section.theme-cult,
 html[data-theme="light"] article.theme-cult {
-  background: radial-gradient(ellipse at 50% 0%, rgba(28, 24, 20, 0.14), transparent 58%),
-              #D9CDB8;
+  background: #D9CDB8 !important;
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(28, 24, 20, 0.12), transparent 58%) !important;
   border-color: rgba(139, 30, 45, 0.35);
 }
 html[data-theme="light"] .theme-cult .kicker,
@@ -2293,21 +2384,16 @@ html[data-theme="light"] .theme-cult .person h3 {
   color: var(--ember);
 }
 
-
-/* --------------------------------------------------------------------------
-   person-land stacks — Brand: all portrait vessels use this format.
-   -------------------------------------------------------------------------- */
-.person.person-land {
-  display: flex;
-  grid-template-columns: none;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding: 0;
-  border-top: 0;
-  align-items: stretch;
+html[data-theme="light"] body.heat-order .hero.heat-board,
+html[data-theme="light"] body.heat-works .hero.works-board,
+html[data-theme="light"] .offering,
+html[data-theme="light"] .offering-copy,
+html[data-theme="light"] .form-note,
+html[data-theme="light"] .pull,
+html[data-theme="light"] blockquote.pull {
+  background-color: transparent;
 }
-.people-steps:has(> .person-land) {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+html[data-theme="light"] .masthead,
+html[data-theme="light"] .nav-open .nav-primary {
+  background: #E8DCC8 !important;
 }
