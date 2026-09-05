@@ -2388,8 +2388,8 @@ html[data-theme="light"] .nav-open .nav-primary {
 
 
 /* --------------------------------------------------------------------------
-   Light: homepage photo terraces — keep image; stronger bottom veil so dark ink reads.
-   Do not flatten into parchment cards. (Ryan 2026-09-05)
+   Light: homepage photo terraces — Bone veil must win; photos stay.
+   Brand 2026-09-05t: kill night gradient + slab::after fight.
    -------------------------------------------------------------------------- */
 html[data-theme="light"] body.heat-home .terrace,
 html[data-theme="light"] body.heat-home .terrace-sandria,
@@ -2404,13 +2404,25 @@ html[data-theme="light"] body.heat-home .terrace-saffrika:hover {
 html[data-theme="light"] body.heat-home .terrace .slab {
   background: transparent !important;
 }
+html[data-theme="light"] body.heat-home .terrace .slab::after {
+  content: none !important;
+  background: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+html[data-theme="light"] body.heat-home .terrace .slab img {
+  /* keep photo; no extra mask fighting the copy veil */
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
 html[data-theme="light"] body.heat-home .terrace-copy {
-  background: linear-gradient(
+  background-color: transparent !important;
+  background-image: linear-gradient(
     to top,
-    rgba(232, 220, 200, 0.97) 0%,
-    rgba(232, 220, 200, 0.88) 22%,
-    rgba(232, 220, 200, 0.55) 48%,
-    rgba(232, 220, 200, 0.15) 72%,
+    rgba(232, 220, 200, 0.98) 0%,
+    rgba(232, 220, 200, 0.94) 28%,
+    rgba(232, 220, 200, 0.72) 48%,
+    rgba(232, 220, 200, 0.28) 68%,
     transparent 100%
   ) !important;
 }
@@ -2419,9 +2431,14 @@ html[data-theme="light"] body.heat-home .terrace-sandria .terrace-name,
 html[data-theme="light"] body.heat-home .terrace-sakura .terrace-name,
 html[data-theme="light"] body.heat-home .terrace-saffrika .terrace-name {
   color: var(--ink, #1C1814) !important;
-  text-shadow: 0 1px 0 rgba(232, 220, 200, 0.55);
+  text-shadow:
+    0 1px 0 rgba(232, 220, 200, 0.7),
+    0 0 14px rgba(232, 220, 200, 0.85);
 }
 html[data-theme="light"] body.heat-home .terrace-tag {
-  color: #3A342C !important;
-  text-shadow: 0 1px 0 rgba(232, 220, 200, 0.45);
+  color: var(--ink, #1C1814) !important;
+  opacity: 0.88;
+  text-shadow:
+    0 1px 0 rgba(232, 220, 200, 0.7),
+    0 0 14px rgba(232, 220, 200, 0.85);
 }
