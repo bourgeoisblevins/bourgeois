@@ -1289,8 +1289,8 @@ body.heat-order .rites-jump:hover { color: var(--illumination); }
   object-position: center;
   filter: brightness(0.68) saturate(0.82);
   transition: filter var(--dur-coil) var(--ease-ritual);
-  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 38%, #000 100%);
-  mask-image: linear-gradient(to top, transparent 0%, #000 38%, #000 100%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 22%, #000 100%);
+  mask-image: linear-gradient(to top, transparent 0%, #000 22%, #000 100%);
 }
 .slab::before {
   content: "";
@@ -1308,20 +1308,10 @@ body.heat-order .rites-jump:hover { color: var(--illumination); }
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  /* Site-wide: soft dissolve from bottom of the frame upward into the page */
+  /* Bottom dissolve only — obsidian → transparent. No glass / backdrop-filter. */
   background:
-    linear-gradient(to top, var(--bg) 0%, rgba(11, 10, 9, 0.92) 12%, rgba(11, 10, 9, 0.55) 32%, rgba(11, 10, 9, 0.18) 52%, transparent 72%),
-    radial-gradient(ellipse at center, transparent 42%, rgba(11, 10, 9, 0.55) 100%);
-  -webkit-backdrop-filter: blur(0px);
-  backdrop-filter: blur(0px);
-  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 28%, transparent 70%);
-  mask-image: linear-gradient(to top, #000 0%, #000 28%, transparent 70%);
-}
-@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-  .slab::after {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-  }
+    linear-gradient(to top, var(--bg) 0%, rgba(11, 10, 9, 0.92) 14%, rgba(11, 10, 9, 0.5) 36%, rgba(11, 10, 9, 0.15) 55%, transparent 74%),
+    radial-gradient(ellipse at center, transparent 42%, rgba(11, 10, 9, 0.5) 100%);
 }
 .slab:hover::before,
 a:hover > .slab::before,
@@ -1938,48 +1928,71 @@ body.heat-order .heat-step {
 
 
 /* --------------------------------------------------------------------------
-   Cult theme — black + crimson for Cult / Apostles / Crimson Moon articles.
-   Masthead gold stays the house; content accents shift to ember.
+   Cult theme — antagonist sections only (Apostles / Deep / Moon / Usurper works).
+   Ember & crimson as trim — never a red wash. Eye + masthead stay brand gold.
+   Do NOT remap --nexus on :root/body (that would recolor the altar).
    -------------------------------------------------------------------------- */
 .theme-cult,
-body.theme-cult,
 [data-theme="cult"] {
-  --nexus: var(--crimson);
-  --illumination: var(--ember);
-  --temple: #6B1520;
-  --line: rgba(139, 30, 45, 0.42);
-  --line-dim: rgba(139, 30, 45, 0.22);
+  --line: rgba(139, 30, 45, 0.4);
+  --line-dim: rgba(139, 30, 45, 0.2);
 }
-body.theme-cult .masthead .wordmark,
-body.theme-cult .site-foot .wordmark,
-.theme-cult .masthead .wordmark {
-  color: var(--brand-gold);
-}
-body.theme-cult .nav-primary a.is-active,
-body.theme-cult .nav-primary a[aria-current="page"] {
+.theme-cult .kicker,
+[data-theme="cult"] .kicker,
+.theme-cult .from,
+[data-theme="cult"] .from {
   color: var(--ember);
-  box-shadow: inset 0 -1px 0 var(--ember);
 }
-body.theme-cult .hero .gold,
+.theme-cult h2,
+.theme-cult h3,
+[data-theme="cult"] h2,
+[data-theme="cult"] h3 {
+  color: var(--ember);
+}
+.theme-cult h2 .gold,
 .theme-cult .gold {
   color: var(--ember);
 }
-body.theme-cult .slab::before,
-.theme-cult .slab::before {
-  background: radial-gradient(ellipse at 48% 40%, rgba(180, 35, 52, 0.12) 0%, transparent 58%);
-}
-body.theme-cult .page-rail a:hover,
-.theme-cult a:hover {
+.theme-cult a {
   color: var(--ember);
+  border-bottom-color: rgba(180, 35, 52, 0.35);
+}
+.theme-cult a:hover {
+  color: #D45A66;
+}
+.theme-cult .slab {
+  border-color: rgba(139, 30, 45, 0.45);
+}
+.theme-cult .slab::before {
+  background: radial-gradient(ellipse at 48% 40%, rgba(180, 35, 52, 0.1) 0%, transparent 58%);
 }
 #apostles.theme-cult,
-section.theme-cult {
-  background: radial-gradient(ellipse at 50% 0%, rgba(139, 30, 45, 0.14), transparent 55%);
+section.theme-cult,
+article.theme-cult {
+  /* Soft heat, not a flood */
+  background: radial-gradient(ellipse at 50% 0%, rgba(139, 30, 45, 0.1), transparent 58%);
+}
+
+/* Eye is always gold light — never a crimson pupil */
+.mark-altar::after {
+  background: radial-gradient(circle, rgba(232, 197, 71, 0.22) 0%, rgba(201, 162, 39, 0.08) 42%, transparent 70%) !important;
+}
+.mark-altar img {
+  filter:
+    drop-shadow(0 0 6px rgba(232, 197, 71, 0.5))
+    drop-shadow(0 0 18px rgba(232, 197, 71, 0.28))
+    drop-shadow(0 0 40px rgba(201, 162, 39, 0.16)) !important;
+}
+.theme-cult .mark-altar,
+body.theme-cult .mark-altar {
+  /* if somehow nested, still gold */
+  filter: none;
 }
 
 /* Quiet altar stills: keep sharp corners; still get bottom dissolve */
 .slab-quiet {
   border-radius: 0 !important;
-  -webkit-mask-image: none;
+}
+
   mask-image: none;
 }
