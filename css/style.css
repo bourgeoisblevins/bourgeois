@@ -2237,17 +2237,6 @@ html[data-theme="light"] .step-inset,
 html[data-theme="light"] .step-stone,
 html[data-theme="light"] .hero,
 html[data-theme="light"] .hero-page,
-html[data-theme="light"] .terrace,
-html[data-theme="light"] .terrace-sandria,
-html[data-theme="light"] .terrace-sakura,
-html[data-theme="light"] .terrace-saffrika,
-html[data-theme="light"] .terrace-sandria:hover,
-html[data-theme="light"] .terrace-sakura:hover,
-html[data-theme="light"] .terrace-saffrika:hover,
-html[data-theme="light"] body.heat-home .terrace,
-html[data-theme="light"] body.heat-home .terrace-sandria,
-html[data-theme="light"] body.heat-home .terrace-sakura,
-html[data-theme="light"] body.heat-home .terrace-saffrika,
 html[data-theme="light"] .page-rail,
 html[data-theme="light"] .office,
 html[data-theme="light"] .disciple,
@@ -2271,7 +2260,6 @@ html[data-theme="light"] .tenet,
 html[data-theme="light"] .hierarchy li,
 html[data-theme="light"] .related-list li,
 html[data-theme="light"] body.heat-order .heat-step,
-html[data-theme="light"] body.heat-home .terrace,
 html[data-theme="light"] .page-rail,
 html[data-theme="light"] .site-foot {
   background: #E2D6C2 !important;
@@ -2396,4 +2384,44 @@ html[data-theme="light"] blockquote.pull {
 html[data-theme="light"] .masthead,
 html[data-theme="light"] .nav-open .nav-primary {
   background: #E8DCC8 !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   Light: homepage photo terraces — keep image; stronger bottom veil so dark ink reads.
+   Do not flatten into parchment cards. (Ryan 2026-09-05)
+   -------------------------------------------------------------------------- */
+html[data-theme="light"] body.heat-home .terrace,
+html[data-theme="light"] body.heat-home .terrace-sandria,
+html[data-theme="light"] body.heat-home .terrace-sakura,
+html[data-theme="light"] body.heat-home .terrace-saffrika,
+html[data-theme="light"] body.heat-home .terrace-sandria:hover,
+html[data-theme="light"] body.heat-home .terrace-sakura:hover,
+html[data-theme="light"] body.heat-home .terrace-saffrika:hover {
+  background: transparent !important;
+  background-image: none !important;
+}
+html[data-theme="light"] body.heat-home .terrace .slab {
+  background: transparent !important;
+}
+html[data-theme="light"] body.heat-home .terrace-copy {
+  background: linear-gradient(
+    to top,
+    rgba(232, 220, 200, 0.97) 0%,
+    rgba(232, 220, 200, 0.88) 22%,
+    rgba(232, 220, 200, 0.55) 48%,
+    rgba(232, 220, 200, 0.15) 72%,
+    transparent 100%
+  ) !important;
+}
+html[data-theme="light"] body.heat-home .terrace-name,
+html[data-theme="light"] body.heat-home .terrace-sandria .terrace-name,
+html[data-theme="light"] body.heat-home .terrace-sakura .terrace-name,
+html[data-theme="light"] body.heat-home .terrace-saffrika .terrace-name {
+  color: var(--ink, #1C1814) !important;
+  text-shadow: 0 1px 0 rgba(232, 220, 200, 0.55);
+}
+html[data-theme="light"] body.heat-home .terrace-tag {
+  color: #3A342C !important;
+  text-shadow: 0 1px 0 rgba(232, 220, 200, 0.45);
 }
