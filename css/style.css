@@ -2473,6 +2473,11 @@ html[data-theme="light"] body.heat-home .terrace-copy {
     rgba(232, 220, 200, 0.28) 68%,
     transparent 100%
   ) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
 }
 html[data-theme="light"] body.heat-home .terrace-name,
 html[data-theme="light"] body.heat-home .terrace-sandria .terrace-name,
