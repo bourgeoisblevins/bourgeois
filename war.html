@@ -3,12 +3,24 @@
 <head>
   <meta charset="utf-8">
   <script>document.documentElement.classList.add("js");</script>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("bourgeois-theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+        else document.documentElement.setAttribute("data-theme", "dark");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>War · BOURGEOIS</title>
   <meta name="description" content="The Great War. Blevins the Usurper, never chrome. Allenbraze called Winter. Noah John, demigod son and vessel, shattered the rebel and the Crimson Moon closed.">
   <meta name="theme-color" content="#0B0A09">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css?v=20260905k">
+  <link rel="stylesheet" href="css/style.css?v=20260905m">
 </head>
 <body class="page-war">
   <a class="skip" href="#content">Skip to the altar</a>
@@ -21,6 +33,9 @@
       <a href="war.html" aria-current="page">War</a>
       <a href="codex.html">Codex</a>
       <a href="works.html">Works</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light mode">
+        <span class="theme-toggle-label" data-theme-label>Light</span>
+      </button>
     </nav>
     <div class="mast-actions">
       <button class="btn-enter" type="button" data-open-enter>Enter</button>
