@@ -1675,7 +1675,7 @@ body.heat-works .works-board .hero-lede {
 }
 
 /* Land portraits: image is the frame; copy sits ON the fade, not below a blocking slab.
-   Pulls under preceding prose so text above rides the top dissolve. */
+   Clear space above so preceding section prose never overlaps the vessel. */
 .person-land {
   position: relative;
   display: flex;
@@ -1683,13 +1683,13 @@ body.heat-works .works-board .hero-lede {
   justify-content: flex-end; /* copy rises from the bottom only */
   align-items: stretch;
   max-width: min(920px, 100%);
-  margin: -48px auto 56px;
+  margin: 48px auto 64px;
   padding: 0;
   border: 0;
   border-top: 0;
   grid-template-columns: none;
   min-height: clamp(440px, 120vw, 740px);
-  z-index: 1;
+  z-index: 0;
   border-radius: var(--radius-vessel, 18px);
   overflow: hidden;
 }
@@ -1751,13 +1751,19 @@ body.heat-works .works-board .hero-lede {
   text-shadow: 0 1px 10px rgba(11, 10, 9, 0.8);
 }
 
-/* Preceding section prose rides above the pulled frame */
+/* Keep section prose in normal flow — no overlap onto the next vessel */
 .step > p,
 .step > .lede,
 .step > .kicker,
 .step > h2 {
   position: relative;
-  z-index: 3;
+  z-index: auto;
+}
+.step .person-land {
+  clear: both;
+}
+.step > p:last-of-type {
+  margin-bottom: 1.25em;
 }
 .person h3 {
   margin-top: 0;
@@ -1782,7 +1788,7 @@ body.heat-works .works-board .hero-lede {
     margin-left: 0 !important;
   }
   .slab-person { max-width: min(100%, 520px); margin-inline: auto; }
-  .person-land { margin-top: -36px; min-height: clamp(400px, 128vw, 680px); }
+  .person-land { margin-top: 40px; min-height: clamp(400px, 128vw, 680px); }
   .person-land .slab-person { max-width: none; width: auto; inset: 0; }
   .person-land > div { padding: 18px 18px 24px; max-height: 40%; }
 }
@@ -2101,4 +2107,30 @@ body.heat-home .terrace {
 body.heat-home .terrace .slab {
   border: 0 !important;
   border-radius: 0 !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   Section clearance — no text overlapping the next vessel / masthead wash.
+   -------------------------------------------------------------------------- */
+.person-land {
+  margin-top: 48px !important;
+  margin-bottom: 64px !important;
+}
+.step + .step {
+  margin-top: 0;
+}
+.step .slab-region {
+  margin-top: 8px;
+  margin-bottom: 48px;
+}
+@media (max-width: 720px), (orientation: portrait) {
+  .person-land {
+    margin-top: 40px !important;
+    margin-bottom: 56px !important;
+  }
+  main,
+  #content {
+    padding-top: calc(var(--header-h, 64px) + 12px);
+  }
 }
