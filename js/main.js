@@ -118,6 +118,8 @@
         btn.setAttribute("aria-label", mode === "light" ? "Switch to dark mode" : "Switch to light mode");
         btn.setAttribute("aria-pressed", mode === "light" ? "true" : "false");
       }
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", mode === "light" ? "#E8DCC8" : "#0B0A09");
     }
     paint(current());
     if (btn) {
