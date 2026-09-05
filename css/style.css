@@ -1278,10 +1278,9 @@ body.heat-order .rites-jump:hover { color: var(--illumination); }
   position: relative;
   margin: 0;
   overflow: hidden;
-  border: 3px solid rgba(201, 162, 39, 0.62);
+  border: 2px solid var(--line);
   border-radius: var(--radius-vessel, 18px);
   background: var(--obsidian);
-  box-shadow: inset 0 0 0 1px rgba(11, 10, 9, 0.35);
 }
 .slab img {
   position: absolute;
@@ -1698,28 +1697,23 @@ body.heat-works .works-board .hero-lede {
   aspect-ratio: auto;
   height: 100%;
   border-radius: var(--radius-vessel, 18px);
-  border: 3px solid rgba(201, 162, 39, 0.7);
-  box-shadow: inset 0 0 0 1px rgba(11, 10, 9, 0.4);
+  border: 2px solid var(--line);
   z-index: 0;
   pointer-events: none;
 }
 .person-land .slab-person img {
-  /* Solid through the middle; dissolve at top (prose over) and bottom (bio over) */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 58%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 58%, transparent 100%);
+  /* Solid image; dissolve upward from the lower band where copy sits. No glass. */
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 42%, #000 100%);
+  mask-image: linear-gradient(to top, transparent 0%, #000 42%, #000 100%);
   filter: brightness(0.72) saturate(0.88);
 }
 .person-land .slab-person::after {
-  /* Page color washes so preceding/following text stay readable over the frame */
-  background:
-    linear-gradient(to bottom,
-      var(--bg) 0%,
-      rgba(11, 10, 9, 0.82) 8%,
-      rgba(11, 10, 9, 0.25) 22%,
-      transparent 38%,
-      transparent 52%,
-      rgba(11, 10, 9, 0.55) 72%,
-      rgba(11, 10, 9, 0.94) 100%);
+  /* Fade-up dissolve into copy only — text overlays the lower band */
+  background: linear-gradient(to top,
+    var(--bg) 0%,
+    rgba(11, 10, 9, 0.92) 16%,
+    rgba(11, 10, 9, 0.45) 38%,
+    transparent 62%);
 }
 .person-land .slab-person::before {
   opacity: 0.35;
@@ -2057,11 +2051,11 @@ body.theme-cult .mark-altar {
 
 
 /* --------------------------------------------------------------------------
-   Ryan 2026-09-05: thicker rounded frames sitewide; land portraits under copy.
+   Frames — Ryan + Brand: rounded content vessels; Eye + slab-quiet stay sharp.
    -------------------------------------------------------------------------- */
 :root {
   --radius-vessel: 18px;
-  --frame-border: 3px solid rgba(201, 162, 39, 0.68);
+  --frame-border: 2px solid var(--line);
 }
 .slab,
 .slab-person,
@@ -2070,25 +2064,22 @@ body.theme-cult .mark-altar {
 .slab-arch,
 .slab-shot,
 .slab-poster,
-.slab-far,
-.slab-quiet {
-  border-radius: var(--radius-vessel) !important;
-}
-.slab,
-.slab-person,
-.slab-region,
-.slab-house,
-.slab-arch,
-.slab-shot,
-.slab-poster {
-  border: var(--frame-border) !important;
-}
-.slab-quiet {
-  border-left: var(--frame-border) !important;
-  border-right: var(--frame-border) !important;
-}
 .slab-far {
-  border: var(--frame-border) !important;
+  border-radius: var(--radius-vessel);
+  border: var(--frame-border);
+}
+/* HOLD SHARP: quiet altar stills + Serpent's Eye */
+.slab-quiet {
+  border-radius: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-top: 1px solid var(--line-dim);
+  border-bottom: 1px solid var(--line-dim);
+}
+.mark-altar,
+.mark-altar img {
+  border-radius: 0 !important;
+  border: 0 !important;
 }
 body.heat-home .terrace {
   border-radius: var(--radius-vessel);
