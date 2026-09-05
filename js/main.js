@@ -101,3 +101,28 @@
   }
   document.querySelectorAll("form[data-capture]").forEach(bindAltar);
 })();
+
+  /* Light / dark — persisted. Default dark (altar night). */
+  (function () {
+    var root = document.documentElement;
+    var btn = document.querySelector("[data-theme-toggle]");
+    var label = document.querySelector("[data-theme-label]");
+    function current() {
+      return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+    }
+    function paint(mode) {
+      root.setAttribute("data-theme", mode);
+      try { localStorage.setItem("bourgeois-theme", mode); } catch (e) {}
+      if (label) label.textContent = mode === "light" ? "Dark" : "Light";
+      if (btn) {
+        btn.setAttribute("aria-label", mode === "light" ? "Switch to dark mode" : "Switch to light mode");
+        btn.setAttribute("aria-pressed", mode === "light" ? "true" : "false");
+      }
+    }
+    paint(current());
+    if (btn) {
+      btn.addEventListener("click", function () {
+        paint(current() === "light" ? "dark" : "light");
+      });
+    }
+  })();
