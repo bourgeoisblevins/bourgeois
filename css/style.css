@@ -1803,3 +1803,77 @@ body.heat-home .hero-lede {
   .tenet:nth-child(5) { margin-left: 0; }
   .office, .disciple, .rite, .tenet { padding: 22px 18px 24px; }
 }
+
+
+/* --------------------------------------------------------------------------
+   Rounded vessels — Ryan: match Nexus Archive door cards (not sharp slabs).
+   Keep ziggurat stepping; soften corners. No hover-lift / store tiles.
+   -------------------------------------------------------------------------- */
+:root {
+  --radius-vessel: 18px;
+}
+
+body.heat-home .terraces {
+  gap: 14px;
+}
+body.heat-home .terrace,
+body.heat-home .terrace .slab {
+  border-radius: var(--radius-vessel);
+}
+body.heat-home .terrace {
+  margin-bottom: 0;
+  overflow: hidden;
+}
+body.heat-home .terrace .slab {
+  border: 0;
+}
+
+.slab:not(.slab-quiet) {
+  border-radius: var(--radius-vessel);
+}
+.slab-quiet {
+  border-radius: 0;
+}
+
+.office, .disciple, .rite, .tenet {
+  border-radius: var(--radius-vessel);
+  margin-top: 0;
+}
+.office-grid,
+.disciple-grid,
+.rite-grid,
+.tenet-list {
+  gap: 12px;
+}
+.tenet { margin-top: 0; }
+
+body.heat-order .heat-step {
+  border-radius: var(--radius-vessel);
+  margin-top: 0;
+}
+body.heat-order .heat-steps {
+  gap: 12px;
+}
+
+.related-list {
+  gap: 12px;
+}
+.related-list li {
+  border-radius: var(--radius-vessel);
+  border: 1px solid var(--line-dim);
+  padding: 18px 22px 20px;
+  background: linear-gradient(180deg, #14110e 0%, var(--obsidian) 55%);
+  margin-top: 0;
+}
+.related-list a {
+  display: block;
+}
+
+.offering .slab-poster,
+.slab-poster {
+  border-radius: var(--radius-vessel);
+}
+
+.veil-card {
+  border-radius: var(--radius-vessel);
+}
