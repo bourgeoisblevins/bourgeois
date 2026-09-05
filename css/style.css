@@ -1678,15 +1678,20 @@ body.heat-works .works-board .hero-lede {
    Pulls under preceding prose so text above rides the top dissolve. */
 .person-land {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* copy rises from the bottom only */
+  align-items: stretch;
   max-width: min(920px, 100%);
-  margin: -72px auto 56px;
+  margin: -48px auto 56px;
   padding: 0;
   border: 0;
   border-top: 0;
   grid-template-columns: none;
-  min-height: clamp(420px, 118vw, 720px);
+  min-height: clamp(440px, 120vw, 740px);
   z-index: 1;
+  border-radius: var(--radius-vessel, 18px);
+  overflow: hidden;
 }
 .person-land .slab-person {
   position: absolute;
@@ -1696,27 +1701,29 @@ body.heat-works .works-board .hero-lede {
   margin: 0;
   aspect-ratio: auto;
   height: 100%;
-  border-radius: var(--radius-vessel, 18px);
-  border: 2px solid var(--line);
+  border-radius: var(--radius-vessel, 18px) !important;
+  border: 2px solid var(--line) !important;
+  overflow: hidden;
   z-index: 0;
   pointer-events: none;
 }
 .person-land .slab-person img {
-  /* Solid image; dissolve upward from the lower band where copy sits. No glass. */
-  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 42%, #000 100%);
-  mask-image: linear-gradient(to top, transparent 0%, #000 42%, #000 100%);
+  /* Solid upper image; fade only in the lower ~40% where copy lives */
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 38%, #000 100%);
+  mask-image: linear-gradient(to top, transparent 0%, #000 38%, #000 100%);
   filter: brightness(0.72) saturate(0.88);
 }
 .person-land .slab-person::after {
-  /* Fade-up dissolve into copy only — text overlays the lower band */
+  /* Fade band matches copy zone — solid above, dissolve in lower third */
   background: linear-gradient(to top,
     var(--bg) 0%,
-    rgba(11, 10, 9, 0.92) 16%,
-    rgba(11, 10, 9, 0.45) 38%,
-    transparent 62%);
+    rgba(11, 10, 9, 0.95) 12%,
+    rgba(11, 10, 9, 0.7) 28%,
+    rgba(11, 10, 9, 0.25) 42%,
+    transparent 55%);
 }
 .person-land .slab-person::before {
-  opacity: 0.35;
+  opacity: 0.28;
 }
 .person-land > div {
   position: relative;
@@ -1724,9 +1731,13 @@ body.heat-works .works-board .hero-lede {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: clamp(210px, 58vw, 380px) 22px 28px;
+  margin-top: auto; /* pin to bottom */
+  padding: 20px 22px 26px;
   text-align: left;
   background: transparent;
+  /* keep type inside the faded band only */
+  max-height: 38%;
+  overflow: hidden;
 }
 .person-land .from { color: var(--ash); }
 .person-land h3 {
@@ -1771,9 +1782,9 @@ body.heat-works .works-board .hero-lede {
     margin-left: 0 !important;
   }
   .slab-person { max-width: min(100%, 520px); margin-inline: auto; }
-  .person-land { margin-top: -48px; min-height: clamp(380px, 130vw, 640px); }
+  .person-land { margin-top: -36px; min-height: clamp(400px, 128vw, 680px); }
   .person-land .slab-person { max-width: none; width: auto; inset: 0; }
-  .person-land > div { padding: clamp(180px, 62vw, 340px) 18px 24px; }
+  .person-land > div { padding: 18px 18px 24px; max-height: 40%; }
 }
 
 .imdb-hair {
@@ -1965,13 +1976,10 @@ body.heat-order .heat-step {
   display: block;
 }
 
-.slab:not(.slab-quiet):not(.slab-poster) {
-  /* region/house stills stay sharp unless they are door vessels */
-  border-radius: 0;
-}
 .slab-quiet {
   border-radius: 0;
 }
+
 
 
 /* BRAND LOCK 2026-09-05: .theme-cult a + .theme-cult .gold = var(--brand-gold); ember only .kicker/.from (+ apostle h3 trim). */
@@ -2065,8 +2073,12 @@ body.theme-cult .mark-altar {
 .slab-shot,
 .slab-poster,
 .slab-far {
-  border-radius: var(--radius-vessel);
-  border: var(--frame-border);
+  border-radius: var(--radius-vessel) !important;
+  border: var(--frame-border) !important;
+  overflow: hidden;
+}
+.person-land {
+  border-radius: var(--radius-vessel) !important;
 }
 /* HOLD SHARP: quiet altar stills + Serpent's Eye */
 .slab-quiet {
