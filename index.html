@@ -23,7 +23,7 @@
   <meta property="og:description" content="The Nexus binds the world. The Order keeps it. The Usurper waits in the Crimson Moon.">
   <meta property="og:type" content="website">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css?v=20260905q">
+  <link rel="stylesheet" href="css/style.css?v=20260905r">
 </head>
 <body class="heat-home">
   <a class="skip" href="#content">Skip to the altar</a>
@@ -36,10 +36,16 @@
       <a href="war.html">War</a>
       <a href="codex.html">Codex</a>
       <a href="works.html">Works</a>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light mode">
-        <span class="theme-toggle-label" data-theme-label>Light</span>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light mode" aria-pressed="false">
+        <svg class="theme-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+          <g class="sun">
+            <circle class="sun-core" cx="12" cy="12" r="4"></circle>
+            <path class="ray" d="M12 2v2.2M12 19.8V22M2 12h2.2M19.8 12H22M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path>
+          </g>
+          <path class="moon" d="M15.2 3.2a8.2 8.2 0 1 0 5.6 14.4 7 7 0 1 1-5.6-14.4z"></path>
+        </svg>
       </button>
-    </nav>
+</nav>
     <div class="mast-actions">
       <button class="btn-enter" type="button" data-open-enter>Enter</button>
       <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
