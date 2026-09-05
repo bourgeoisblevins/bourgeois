@@ -1804,15 +1804,15 @@ body.heat-home .hero-lede {
   .office, .disciple, .rite, .tenet { padding: 22px 18px 24px; }
 }
 
-
 /* --------------------------------------------------------------------------
-   Rounded vessels — Ryan: match Nexus Archive door cards (not sharp slabs).
-   Keep ziggurat stepping; soften corners. No hover-lift / store tiles.
+   Rounded vessels — Ryan: soft door radius on door vessels only.
+   Brand: ziggurat lists keep flush overlap; terraces/Works posters get radius.
    -------------------------------------------------------------------------- */
 :root {
   --radius-vessel: 18px;
 }
 
+/* Homepage terrace doors + Works posters */
 body.heat-home .terraces {
   gap: 14px;
 }
@@ -1828,52 +1828,56 @@ body.heat-home .terrace .slab {
   border: 0;
 }
 
-.slab:not(.slab-quiet) {
+.offering .slab-poster,
+.slab-poster {
   border-radius: var(--radius-vessel);
-}
-.slab-quiet {
-  border-radius: 0;
 }
 
+/* Soft radius on framed stone, but restore flush stepped overlap */
 .office, .disciple, .rite, .tenet {
   border-radius: var(--radius-vessel);
-  margin-top: 0;
 }
 .office-grid,
 .disciple-grid,
 .rite-grid,
 .tenet-list {
-  gap: 12px;
+  gap: 0;
 }
-.tenet { margin-top: 0; }
+.office, .disciple, .rite, .tenet {
+  margin-top: -1px;
+}
+.office-father {
+  margin-top: 0;
+  border-radius: 0;
+}
+.tenet { margin-top: -1px; }
 
+body.heat-order .heat-steps {
+  gap: 0;
+}
 body.heat-order .heat-step {
   border-radius: var(--radius-vessel);
-  margin-top: 0;
-}
-body.heat-order .heat-steps {
-  gap: 12px;
+  margin-top: -1px;
 }
 
 .related-list {
-  gap: 12px;
+  gap: 0;
 }
 .related-list li {
   border-radius: var(--radius-vessel);
   border: 1px solid var(--line-dim);
   padding: 18px 22px 20px;
   background: linear-gradient(180deg, #14110e 0%, var(--obsidian) 55%);
-  margin-top: 0;
+  margin-top: -1px;
 }
 .related-list a {
   display: block;
 }
 
-.offering .slab-poster,
-.slab-poster {
-  border-radius: var(--radius-vessel);
+.slab:not(.slab-quiet):not(.slab-poster) {
+  /* region/house stills stay sharp unless they are door vessels */
+  border-radius: 0;
 }
-
-.veil-card {
-  border-radius: var(--radius-vessel);
+.slab-quiet {
+  border-radius: 0;
 }
