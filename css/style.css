@@ -1396,7 +1396,7 @@ a:hover > .slab img,
 .step > .slab-region:first-child::after {
   content: "" !important;
   background:
-    linear-gradient(to top, var(--bg, #0B0A09) 0%, rgba(11, 10, 9, 0.92) 22%, rgba(11, 10, 9, 0.45) 48%, transparent 78%) !important;
+    linear-gradient(to top, var(--bg, #0B0A09) 0%, rgba(11, 10, 9, 0.55) 12%, rgba(11, 10, 9, 0.18) 28%, transparent 48%) !important;
   -webkit-mask-image: none !important;
   mask-image: none !important;
   -webkit-backdrop-filter: none !important;
@@ -1413,7 +1413,7 @@ a:hover > .slab img,
 }
 html[data-theme="light"] .step > .slab-region:first-child::after {
   background:
-    linear-gradient(to top, var(--bg, #E8DCC8) 0%, rgba(232, 220, 200, 0.95) 22%, rgba(232, 220, 200, 0.5) 48%, transparent 78%) !important;
+    linear-gradient(to top, var(--bg, #E8DCC8) 0%, rgba(232, 220, 200, 0.55) 12%, rgba(232, 220, 200, 0.18) 28%, transparent 48%) !important;
 }
 
 
@@ -2509,10 +2509,10 @@ html[data-theme="light"] body.heat-home .terrace-tag {
 }
 .step > .slab-house:first-child::after {
   content: "" !important;
-  background: linear-gradient(to top, var(--bg, #0B0A09) 0%, rgba(11, 10, 9, 0.92) 22%, rgba(11, 10, 9, 0.45) 48%, transparent 78%) !important;
+  background: linear-gradient(to top, var(--bg, #0B0A09) 0%, rgba(11, 10, 9, 0.55) 12%, rgba(11, 10, 9, 0.18) 28%, transparent 48%) !important;
 }
 html[data-theme="light"] .step > .slab-house:first-child::after {
-  background: linear-gradient(to top, var(--bg, #E8DCC8) 0%, rgba(232, 220, 200, 0.95) 22%, rgba(232, 220, 200, 0.5) 48%, transparent 78%) !important;
+  background: linear-gradient(to top, #E8DCC8 0%, rgba(232, 220, 200, 0.55) 12%, rgba(232, 220, 200, 0.18) 28%, transparent 48%) !important;
 }
 
 
@@ -2535,18 +2535,18 @@ html[data-theme="light"] .step > .slab-house:first-child::after {
   background: linear-gradient(
     to top,
     var(--bg) 0%,
-    color-mix(in srgb, var(--bg) 92%, transparent) 22%,
-    color-mix(in srgb, var(--bg) 45%, transparent) 48%,
-    transparent 78%
+    color-mix(in srgb, var(--bg) 55%, transparent) 12%,
+    color-mix(in srgb, var(--bg) 18%, transparent) 28%,
+    transparent 48%
   ) !important;
 }
 html[data-theme="light"] .step > .slab-region:first-child::after {
   background: linear-gradient(
     to top,
     #E8DCC8 0%,
-    rgba(232, 220, 200, 0.95) 22%,
-    rgba(232, 220, 200, 0.5) 48%,
-    transparent 78%
+    rgba(232, 220, 200, 0.55) 12%,
+    rgba(232, 220, 200, 0.18) 28%,
+    transparent 48%
   ) !important;
 }
 html[data-theme="dark"] .step > .slab-region:first-child::after,
@@ -2554,9 +2554,9 @@ html:not([data-theme="light"]) .step > .slab-region:first-child::after {
   background: linear-gradient(
     to top,
     #0B0A09 0%,
-    rgba(11, 10, 9, 0.92) 22%,
-    rgba(11, 10, 9, 0.45) 48%,
-    transparent 78%
+    rgba(11, 10, 9, 0.55) 12%,
+    rgba(11, 10, 9, 0.18) 28%,
+    transparent 48%
   ) !important;
 }
 .step > .slab-region:first-child + .kicker,
