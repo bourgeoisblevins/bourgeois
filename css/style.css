@@ -1950,8 +1950,9 @@ body.heat-order .heat-step {
 [data-theme="cult"].person h3 {
   color: var(--ember);
 }
-#apostles.theme-cult h2 .gold {
-  color: var(--ember);
+#apostles.theme-cult h2 .gold,
+.theme-cult .gold {
+  color: var(--brand-gold);
 }
 /* Links stay Nexus gold even inside cult sections */
 .theme-cult a {
