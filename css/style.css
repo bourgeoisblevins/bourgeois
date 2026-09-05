@@ -1927,6 +1927,7 @@ body.heat-order .heat-step {
 }
 
 
+/* BRAND LOCK 2026-09-05: .theme-cult a + .theme-cult .gold = var(--brand-gold); ember only .kicker/.from (+ apostle h3 trim). */
 /* --------------------------------------------------------------------------
    Cult theme — antagonist sections only (Apostles / Deep / Moon / Usurper works).
    Ember & crimson as trim — never a red wash. Eye + masthead stay brand gold.
