@@ -2121,7 +2121,6 @@ body.theme-cult .mark-altar {
 }
 .slab,
 .slab-person,
-.slab-region,
 .slab-house,
 .slab-arch,
 .slab-shot,
@@ -2131,6 +2130,8 @@ body.theme-cult .mark-altar {
   border: var(--frame-border) !important;
   overflow: hidden;
 }
+/* .slab-region full-bleed openers: no door radius — see section opener lock below */
+
 .person-land {
   border-radius: var(--radius-vessel) !important;
 }
@@ -2507,4 +2508,54 @@ html[data-theme="light"] body.heat-home .terrace-tag {
 }
 html[data-theme="light"] .step > .slab-house:first-child::after {
   background: linear-gradient(to top, var(--bg, #E8DCC8) 0%, rgba(232, 220, 200, 0.95) 22%, rgba(232, 220, 200, 0.5) 48%, transparent 78%) !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   Section stills LOCK (Ryan + Brand) — full-bleed openers only.
+   Homepage terraces + Works posters keep --radius-vessel.
+   -------------------------------------------------------------------------- */
+.step > .slab-region:first-child {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  min-height: clamp(260px, 58vw, 580px) !important;
+  box-shadow: none !important;
+}
+.step > .slab-region:first-child::after {
+  content: "" !important;
+  background: linear-gradient(
+    to top,
+    var(--bg) 0%,
+    color-mix(in srgb, var(--bg) 92%, transparent) 22%,
+    color-mix(in srgb, var(--bg) 45%, transparent) 48%,
+    transparent 78%
+  ) !important;
+}
+html[data-theme="light"] .step > .slab-region:first-child::after {
+  background: linear-gradient(
+    to top,
+    #E8DCC8 0%,
+    rgba(232, 220, 200, 0.95) 22%,
+    rgba(232, 220, 200, 0.5) 48%,
+    transparent 78%
+  ) !important;
+}
+html[data-theme="dark"] .step > .slab-region:first-child::after,
+html:not([data-theme="light"]) .step > .slab-region:first-child::after {
+  background: linear-gradient(
+    to top,
+    #0B0A09 0%,
+    rgba(11, 10, 9, 0.92) 22%,
+    rgba(11, 10, 9, 0.45) 48%,
+    transparent 78%
+  ) !important;
+}
+.step > .slab-region:first-child + .kicker,
+.step > .slab-region:first-child + .kicker + h2 {
+  position: relative;
+  z-index: 2;
 }
