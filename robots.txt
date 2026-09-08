@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bourgeoisblevins.github.io/bourgeois/sitemap.xml
